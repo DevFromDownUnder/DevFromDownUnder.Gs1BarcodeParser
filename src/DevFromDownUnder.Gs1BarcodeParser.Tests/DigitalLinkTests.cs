@@ -1,4 +1,4 @@
-﻿namespace Gs1BarcodeParser.Tests
+﻿namespace DevFromDownUnder.Gs1BarcodeParser.Tests
 {
     [TestClass]
     public sealed class DigitalLinkTests

@@ -1,15 +1,15 @@
-using Gs1BarcodeParser.Barcode;
-using Gs1BarcodeParser.Barcode.Definition;
-using Gs1BarcodeParser.Barcode.Definition.AI;
-using Gs1BarcodeParser.Barcode.Definition.Enums;
-using Gs1BarcodeParser.Barcode.Definition.Linter;
-using Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
-using Gs1BarcodeParser.Converters;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gs1BarcodeParser
+namespace DevFromDownUnder.Gs1BarcodeParser
 {
     public class BarcodeParser
     {

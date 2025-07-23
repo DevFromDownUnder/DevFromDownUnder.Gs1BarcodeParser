@@ -1,7 +1,7 @@
 ﻿using System.Text;
-using Gs1BarcodeParser;
+using DevFromDownUnder.Gs1BarcodeParser;
 
-namespace Gs1BarcodeParser.Tests
+namespace DevFromDownUnder.Gs1BarcodeParser.Tests
 {
     [TestClass]
     public sealed class FuzzTests

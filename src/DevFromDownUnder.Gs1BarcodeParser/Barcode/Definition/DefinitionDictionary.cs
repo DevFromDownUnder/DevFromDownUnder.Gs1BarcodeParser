@@ -1,13 +1,13 @@
-using Gs1BarcodeParser.Barcode.Definition.AI;
-using Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
 using System.Collections.Generic;
 
 // Shorten type names for easier readability in the dictionary definition.
-using Ai = Gs1BarcodeParser.Barcode.Definition.AI.Enums.AITypes;
-using Comp = Gs1BarcodeParser.Barcode.Definition.Enums.ComponentDataType;
-using Lint = Gs1BarcodeParser.Barcode.Definition.Linter.Enums.LinterTypes;
+using Ai = DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI.Enums.AITypes;
+using Comp = DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Enums.ComponentDataType;
+using Lint = DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter.Enums.LinterTypes;
 
-namespace Gs1BarcodeParser.Barcode.Definition
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition
 {
     public static class DefinitionDictionary
     {

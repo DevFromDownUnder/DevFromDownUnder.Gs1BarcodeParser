@@ -4,7 +4,7 @@ using System.Numerics;
 using System;
 using System.Text.RegularExpressions;
 
-namespace Gs1BarcodeParser.Barcode.Definition.Linter
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter
 {
     public static partial class Linter
     {

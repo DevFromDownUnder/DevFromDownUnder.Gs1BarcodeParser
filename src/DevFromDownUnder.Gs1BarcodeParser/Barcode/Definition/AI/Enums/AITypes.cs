@@ -1,4 +1,4 @@
-﻿namespace Gs1BarcodeParser.Barcode.Definition.AI.Enums
+﻿namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI.Enums
 {
     public enum AITypes
     {

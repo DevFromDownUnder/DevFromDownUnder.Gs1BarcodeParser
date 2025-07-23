@@ -1,4 +1,4 @@
-namespace Gs1BarcodeParser.Barcode.Definition.Enums
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Enums
 {
     public enum ComponentDataType
     {

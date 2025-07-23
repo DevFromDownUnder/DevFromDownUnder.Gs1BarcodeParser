@@ -1,0 +1,92 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**\*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  releaseProject: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\DevFromDownUnder.Gs1BarcodeParser.csproj'
+  timestamp: $[format('{0:yyyyMMddHHmmss}', pipeline.startTime)]
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\bin\$(buildConfiguration)\'
+    Contents: '*'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\'
+    Contents: 'DevFromDownUnder.nuspec'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\'
+    Contents: 'readme.rd'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)\images\'
+    Contents: 'icon.jpg'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: ExecutableInfoReader@1
+  inputs:
+    fileName: '$(Build.ArtifactStagingDirectory)\nuget\DevFromDownUnder.Gs1BarcodeParser.dll'
+    variableRoot: 'DevFromDownUnder.Gs1BarcodeParser'
+    loadProductVersion: false
+    loadAssemblyVersion: true
+
+- task: SimpleNuspecVersionSetter@1
+  inputs:
+    RootDirectory: '$(Build.ArtifactStagingDirectory)'
+    NewVersion: '$(packageVersion)'
+
+- task: VariableSetTask@1
+  inputs:
+    VariableName: 'packageVersion'
+    Value: '$(DevFromDownUnder.Gs1BarcodeParser.AssemblyVersionInfo.Version)-preview-$(timestamp)'
+    IsSecret: false
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: '$(Build.ArtifactStagingDirectory)\DevFromDownUnder.nuspec'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'packageVersion'
+    basePath: '$(Build.ArtifactStagingDirectory)'
+
+- task: DotNetCoreCLI@2
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)\*.nupkg'
+    nuGetFeedType: 'internal'
+    publishVstsFeed: 'DevFromDownUnder.Gs1BarcodeParser/DevFromDownUnder.Gs1BarcodeParser-nuget-preview'
+
+- task: DotNetCoreCLI@2
+  displayName: Nuget.org api key workaround
+  inputs:
+    command: custom
+    custom: nuget
+    arguments: >
+      push $(Build.ArtifactStagingDirectory)\*.nupkg
+      -s https://api.nuget.org/v3/index.json
+      -k $(NugetPAT)

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+  <metadata>
+    <id>DevFromDownUnder.Gs1BarcodeParser</id>
+    <version>0.0.0</version>
+    <title>DevFromDownUnder.Gs1BarcodeParser</title>
+    <authors>DevFromDownUnder</authors>
+    <owners>DevFromDownUnder</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <licenseUrl>https://licenses.nuget.org/MIT</licenseUrl>
+    <projectUrl>https://github.com/DevFromDownUnder/DevFromDownUnder.Gs1BarcodeParser</projectUrl>
+    <repository url="https://github.com/DevFromDownUnder/DevFromDownUnder.Gs1BarcodeParser" />
+    <icon>images\icon.jpg</icon>
+    <readme>docs\readme.md</readme>
+    <description>Library for parsing GS1 AI barcode data</description>
+    <copyright></copyright>
+    <tags>gs1;ai;barcode;parser</tags>
+    <dependencies>
+        <dependency id="System.Memory" version="4.5.5" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="nuget\icon.jpg" target="images\" />
+    <file src="nuget\readme.md" target="docs\" />
+    <file src="nuget\DevFromDownUnder.Honeywell.DataCollection.BarcodeReader.dll" target="lib\netstandard2.0" />
+  </files>
+</package>

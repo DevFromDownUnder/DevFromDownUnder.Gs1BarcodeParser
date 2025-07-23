@@ -1,4 +1,4 @@
-﻿namespace Gs1BarcodeParser.Barcode.Definition.Linter.Enums
+﻿namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter.Enums
 {
     /// <summary>
     /// Defines the types of linters (validators) used for checking GS1 data components.

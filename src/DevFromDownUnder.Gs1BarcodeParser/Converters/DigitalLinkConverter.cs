@@ -2,7 +2,7 @@ using System;
 using System.Text;
 using System.Web;
 
-namespace Gs1BarcodeParser.Converters
+namespace DevFromDownUnder.Gs1BarcodeParser.Converters
 {
     public static class DigitalLinkConverter
     {

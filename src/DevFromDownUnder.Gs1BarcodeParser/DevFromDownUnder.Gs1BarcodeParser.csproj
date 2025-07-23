@@ -2,14 +2,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>7.3</LangVersion>
-    <PackageId>DevFromDownUnder.$(AssemblyName)</PackageId>
     <Title>GS1 Barcode Parser</Title>
     <Authors>DevFromDownUnder</Authors>
     <Description>Library for parsing GS1 AI barcode data</Description>
-    <PackageId>DevFromDownUnder.Gs1BarcodeParser</PackageId>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <PackageTags>gs1;barcode;parser</PackageTags>
-    <PackageIconUrl>https://www.nuget.org/profiles/DevFromDownUnder/avatar</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>

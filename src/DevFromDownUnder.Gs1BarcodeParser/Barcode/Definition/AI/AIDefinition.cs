@@ -1,8 +1,8 @@
-using Gs1BarcodeParser.Barcode.Definition.AI.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI.Enums;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Gs1BarcodeParser.Barcode.Definition.AI
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI
 {
     public class AIDefinition
     {

@@ -1,7 +1,7 @@
-using Gs1BarcodeParser.Barcode.Definition.AI;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI;
 using System.Collections.Generic;
 
-namespace Gs1BarcodeParser.Barcode
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode
 {
     public class BarcodeIdentifier
     {

@@ -1,7 +1,7 @@
-using Gs1BarcodeParser.Barcode;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode;
 using System.Collections.Generic;
 
-namespace Gs1BarcodeParser
+namespace DevFromDownUnder.Gs1BarcodeParser
 {
     public class ParserResult
     {

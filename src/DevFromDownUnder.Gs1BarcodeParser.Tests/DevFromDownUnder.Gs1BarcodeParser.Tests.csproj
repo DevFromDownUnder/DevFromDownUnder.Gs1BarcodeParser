@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Gs1BarcodeParser\Gs1BarcodeParser.csproj" />
+    <ProjectReference Include="..\DevFromDownUnder.Gs1BarcodeParser\DevFromDownUnder.Gs1BarcodeParser.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,7 +1,7 @@
-﻿using Gs1BarcodeParser.Barcode.Definition.AI.Enums;
+﻿using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI.Enums;
 using System.Collections.Generic;
 
-namespace Gs1BarcodeParser.Barcode.Definition.AI
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.AI
 {
     public static class AIMetadata
     {

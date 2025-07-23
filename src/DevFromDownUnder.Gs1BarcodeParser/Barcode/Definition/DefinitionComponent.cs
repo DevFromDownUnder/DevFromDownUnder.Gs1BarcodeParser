@@ -1,8 +1,8 @@
-using Gs1BarcodeParser.Barcode.Definition.Enums;
-using Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Enums;
+using DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition.Linter.Enums;
 using System.Collections.Generic;
 
-namespace Gs1BarcodeParser.Barcode.Definition
+namespace DevFromDownUnder.Gs1BarcodeParser.Barcode.Definition
 {
     public class DefinitionComponent
     {
