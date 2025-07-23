@@ -1,0 +1,31 @@
+trigger:
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+- task: swellaby.mirror-git-repository.mirror-git-repository-vsts-task.mirror-git-repository-vsts-task@1
+  displayName: 'Mirror Git Repository'
+  inputs:
+    sourceGitRepositoryUri: 'https://dev.azure.com/DevFromDownUnder/DevFromDownUnder.Gs1BarcodeParser/_git/DevFromDownUnder.Gs1BarcodeParser'
+    sourceGitRepositoryPersonalAccessToken: $(DevOpsPAT)
+    destinationGitRepositoryUri: 'https://github.com/DevFromDownUnder/DevFromDownUnder.Gs1BarcodeParser'
+    destinationGitRepositoryPersonalAccessToken: '$(GithubPAT)'
