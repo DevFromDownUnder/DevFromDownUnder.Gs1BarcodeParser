@@ -8,6 +8,7 @@ variables:
   solution: '**\*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
+  framework: 'netstandard2.0'
   releaseProject: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\DevFromDownUnder.Gs1BarcodeParser.csproj'
   timestamp: $[format('{0:yyyyMMddHHmmss}', pipeline.startTime)]
 
@@ -26,7 +27,7 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\bin\$(buildConfiguration)\'
+    SourceFolder: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\bin\$(buildConfiguration)\$(framework)\'
     Contents: '*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
