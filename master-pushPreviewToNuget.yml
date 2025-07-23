@@ -70,7 +70,7 @@ steps:
 - task: NuGetCommand@2
   inputs:
     command: 'pack'
-    packagesToPack: '$(Build.ArtifactStagingDirectory)\DevFromDownUnder.nuspec'
+    packagesToPack: '$(Build.ArtifactStagingDirectory)\nuget\DevFromDownUnder.nuspec'
     versioningScheme: 'byEnvVar'
     versionEnvVar: 'packageVersion'
     basePath: '$(Build.ArtifactStagingDirectory)'
