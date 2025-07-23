@@ -35,19 +35,19 @@ steps:
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\'
     Contents: 'DevFromDownUnder.nuspec'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\'
-    Contents: 'readme.rd'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    Contents: 'readme.md'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
 - task: CopyFiles@2
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)\images\'
     Contents: 'icon.jpg'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
 - task: ExecutableInfoReader@1
   inputs:
