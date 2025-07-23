@@ -9,7 +9,9 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   framework: 'netstandard2.0'
-  releaseProject: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\DevFromDownUnder.Gs1BarcodeParser.csproj'
+  projectName: 'DevFromDownUnder.Gs1BarcodeParser'
+  releaseProject: '$(Build.SourcesDirectory)\src\$(projectName)\$(projectName).csproj'
+  releaseType: '-preview'
   timestamp: $[format('{0:yyyyMMddHHmmss}', pipeline.startTime)]
 
 steps:
@@ -27,13 +29,13 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\src\DevFromDownUnder.Gs1BarcodeParser\bin\$(buildConfiguration)\$(framework)\'
+    SourceFolder: '$(Build.SourcesDirectory)\src\$(projectName)\bin\$(buildConfiguration)\$(framework)\'
     Contents: '*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '$(Build.SourcesDirectory)\'
+    SourceFolder: '$(Build.SourcesDirectory)\pipelines\'
     Contents: 'DevFromDownUnder.nuspec'
     TargetFolder: '$(Build.ArtifactStagingDirectory)\nuget'
 
@@ -51,8 +53,8 @@ steps:
 
 - task: ExecutableInfoReader@1
   inputs:
-    fileName: '$(Build.ArtifactStagingDirectory)\nuget\DevFromDownUnder.Gs1BarcodeParser.dll'
-    variableRoot: 'DevFromDownUnder.Gs1BarcodeParser'
+    fileName: '$(Build.ArtifactStagingDirectory)\nuget\$(projectName).dll'
+    variableRoot: '$(projectName)'
     loadProductVersion: false
     loadAssemblyVersion: true
 
@@ -64,7 +66,7 @@ steps:
 - task: VariableSetTask@1
   inputs:
     VariableName: 'packageVersion'
-    Value: '$(DevFromDownUnder.Gs1BarcodeParser.AssemblyVersionInfo.Version)-preview-$(timestamp)'
+    Value: '$($(projectName).AssemblyVersionInfo.Version)$(releaseType)-$(timestamp)'
     IsSecret: false
 
 - task: NuGetCommand@2
@@ -80,7 +82,7 @@ steps:
     command: 'push'
     packagesToPush: '$(Build.ArtifactStagingDirectory)\*.nupkg'
     nuGetFeedType: 'internal'
-    publishVstsFeed: 'DevFromDownUnder.Gs1BarcodeParser/DevFromDownUnder.Gs1BarcodeParser-nuget-preview'
+    publishVstsFeed: '$(projectName)/$(projectName)-nuget$(releaseType)'
 
 - task: DotNetCoreCLI@2
   displayName: Nuget.org api key workaround
